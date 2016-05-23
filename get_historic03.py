@@ -7,7 +7,7 @@ import csv
 # function takes list of tickers as input
 
 def get_historic(ticker_list):
-# receives a list of tickers and outputs timer series with date and close
+# receives a list of tickers and outputs time series with date and close
     
     # build URL from Google Finance API
     chunk1 = "http://www.google.com/finance/historical?q="
@@ -61,7 +61,7 @@ def get_historic(ticker_list):
                 splitter = each.split(',')
                 # skip firs element with column headers
                 if index != 0:
-                    # append date/close to outdata as a list of two elements
+                    # append close to outdata in matching list (aligned by date)
                     outdata[index].append(float(splitter[4]))
     
     # write date/close to outfile as a list of two elements
